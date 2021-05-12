@@ -1,0 +1,6 @@
+.Player {
+	
+}
+.Player > .player_body {
+    display: flex;
+}
