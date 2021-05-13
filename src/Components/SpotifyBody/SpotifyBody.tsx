@@ -7,18 +7,18 @@ import SongRow from "../SongRow/SongRow";
 
 function SpotifyBody({ spotify }): JSX.Element {
 
-    const [{ discoverWeekly }, dispatch] = useDataLayerValue();
+    const [{ playlistChosen }] = useDataLayerValue();
 
     return (
         <div className="SpotifyBody">
-            <Header spotify={spotify} />
+            <Header />
 
             <div className="body_info">
-                <img src={discoverWeekly?.images[0].url} alt="" />
+                <img src={playlistChosen?.images[0].url} alt="" />
                 <div className="body_infoText">
                     <strong>PLAYLIST</strong>
-                    <h2>Discover Weekly</h2>
-                    <p>{discoverWeekly?.description}</p>
+                    <h2>{playlistChosen?.name}</h2>
+                    <p>{playlistChosen?.description}</p>
                 </div>
             </div>
             <div className="body_songs">
@@ -27,8 +27,8 @@ function SpotifyBody({ spotify }): JSX.Element {
                     <Favorite fontSize="large" />
                     <MoreHoriz />
                 </div>
-                {discoverWeekly?.tracks.items.map(item =>
-                    <SongRow track={item.track} />
+                {playlistChosen?.tracks.items.map(item =>
+                    <SongRow key={item.track.id} track={item.track} />
                 )}
             </div>
         </div>

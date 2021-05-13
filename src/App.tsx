@@ -27,8 +27,8 @@ function App() {
                 dispatch({ type: 'SET_PLAYLIST', playlists });
             })
 
-            spotify.getPlaylist("37i9dQZEVXcJKbKFmTGuD9").then(discoverWeekly => {
-                dispatch({ type: "SET_DISCOVER_WEEKLY", discoverWeekly })
+            spotify.getPlaylist("37i9dQZEVXcJKbKFmTGuD9").then(playlistChosen => {
+                dispatch({ type: "SET_PLAYLIST_CHOSEN", playlistChosen })
             })
         }
 

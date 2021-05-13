@@ -1,11 +1,11 @@
-import React, { useEffect } from "react";
+import React from "react";
 import SidebarOption from "../SidebarOption/SidebarOption";
 import "./Sidebar.css";
 import { Home, Search, LibraryMusic } from '@material-ui/icons';
 import { useDataLayerValue } from "../DataLayer/DataLayer";
 
 function Sidebar(): JSX.Element {
-    const [{ playlists }, dispatch] = useDataLayerValue();
+    const [{ playlists }] = useDataLayerValue();
 
     return (
         <div className="Sidebar">
@@ -17,7 +17,7 @@ function Sidebar(): JSX.Element {
             <strong className="Sidebar_title">Playlist</strong>
             <hr />
             {playlists?.items?.map(playlist =>
-                <SidebarOption title={playlist.name} />
+                <SidebarOption key={playlist.name} id={playlist.id} title={playlist.name} />
             )}
         </div>
     );

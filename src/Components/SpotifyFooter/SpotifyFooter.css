@@ -35,8 +35,8 @@
     color: white;
 }
 .footer_left > img {
-    height: 60px;
-    width: 60px;
+    height: 50px;
+    width: 70px;
     margin-block-end: 20px;
     object-fit: contain;
 }
@@ -49,4 +49,8 @@
 
 .footer_right * .MuiSlider-root {
     color: green;
+}
+.footer_songInfo {
+    padding-left: 10px;
+    align-items: center;
 }
