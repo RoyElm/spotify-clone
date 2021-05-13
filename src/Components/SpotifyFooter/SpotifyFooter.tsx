@@ -5,8 +5,17 @@ import { Grid, Slider } from "@material-ui/core";
 import { useDataLayerValue } from "../DataLayer/DataLayer";
 
 function SpotifyFooter(): JSX.Element {
+    const [{ track, playing }, dispatch] = useDataLayerValue();
+    const Test_Audio = document.getElementById("Test_Audio") as HTMLMediaElement;
 
-    const [{ track }, dispatch] = useDataLayerValue();
+    function handlePlaySong() {
+        if (track && playing) {
+            Test_Audio.play();
+        }else {
+            Test_Audio.pause();g
+        }
+        dispatch({ type: 'SET_PLAYING', playing: !playing })
+    }
 
     return (
         <div className="SpotifyFooter">
@@ -31,13 +40,15 @@ function SpotifyFooter(): JSX.Element {
             <div className="footer_center">
                 <Shuffle className="footer_green" />
                 <SkipPrevious className="footer_icon" />
-                <PlayCircleOutline fontSize="large" className="footer_green" />
+                <PlayCircleOutline fontSize="large" className="footer_green" onClick={handlePlaySong} />
+                <audio id="Test_Audio" src={track?.preview_url}>
+                </audio>
                 <SkipNext className="footer_green" />
                 <Repeat className="footer_green" />
             </div>
             <div className="footer_right">
                 <Grid container spacing={2}>
-                    <Grid item>
+                    <Grid item >
                         <PlaylistPlay />
                     </Grid>
                     <Grid item>
