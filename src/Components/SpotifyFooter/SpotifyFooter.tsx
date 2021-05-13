@@ -12,7 +12,7 @@ function SpotifyFooter(): JSX.Element {
         if (track && playing) {
             Test_Audio.play();
         }else {
-            Test_Audio.pause();g
+            Test_Audio.pause();
         }
         dispatch({ type: 'SET_PLAYING', playing: !playing })
     }
