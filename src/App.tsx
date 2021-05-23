@@ -26,7 +26,6 @@ function App() {
             spotify.getUserPlaylists().then(playlists => {
                 dispatch({ type: 'SET_PLAYLIST', playlists });
             })
-
             spotify.getPlaylist("37i9dQZEVXcJKbKFmTGuD9").then(playlistChosen => {
                 dispatch({ type: "SET_PLAYLIST_CHOSEN", playlistChosen })
             })

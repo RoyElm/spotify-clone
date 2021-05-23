@@ -7,8 +7,8 @@ function SongRow({ track }): JSX.Element {
     const [{ }, dispatch] = useDataLayerValue();
 
     function setTrack() {
-        console.log(track);
         dispatch({ type: 'SET_TRACK', track: track })
+        dispatch({ type: 'SET_PLAYING', playing: true })
     }
 
     return (

@@ -56,3 +56,7 @@
 .body_songs {
     margin:20px -30px;
 }
+
+.OnPlay {
+    color: rgb(0, 153, 255);
+}
